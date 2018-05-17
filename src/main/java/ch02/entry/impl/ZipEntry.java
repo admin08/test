@@ -1,4 +1,4 @@
-package ch02;
+package ch02.entry.impl;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -7,6 +7,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
+
+import ch02.entry.Entry;
 
 /**
  * ZIP或JAR文件形式的类路径
@@ -35,7 +37,7 @@ public class ZipEntry implements Entry {
 			while((ze=zin.getNextEntry())!=null){
 				if(ze.isDirectory()){
 				} else {
-					if (ze.getName().equals(className) || ze.getName().contains("/" + className)) {
+					if (ze.getName().equals(className)) {
 						try (InputStream is = zf.getInputStream(ze);
 								ByteArrayOutputStream bos = new ByteArrayOutputStream(1000);) {
 							byte[] b = new byte[1000];  

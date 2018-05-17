@@ -1,4 +1,9 @@
-package ch02;
+package ch02.factory;
+
+import ch02.entry.Entry;
+import ch02.entry.impl.CompositeEntry;
+import ch02.entry.impl.DirEntry;
+import ch02.entry.impl.ZipEntry;
 
 /**
  * EntryFactor工场
@@ -11,8 +16,8 @@ public class EntryFactory {
 	 * 如果使用*通配使用CompositeEntry(path)
 	 * 如果是.jar或者.zip结尾的使用ZipEntry(path)
 	 * 其他情况使用DirEntry(path)
-	 * com.zengjia.test.*;com.zengjia.test1.* 使用CompositeEntry(path)
-	 * com.zengjia.test.*使用CompositeEntry(path, true)
+	 * com.zengjia.test.*;com.zengjia.test1.* 使用CompositeEntry(path, true)
+	 * com.zengjia.test.*使用CompositeEntry(path)
 	 * com.zengjia.test.a.jar/a.zip使用ZipEntry(path)
 	 * com.zengjia.test使用DirEntry(path)
 	 * @param path
